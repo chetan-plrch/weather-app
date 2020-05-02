@@ -1,7 +1,7 @@
 .List-item {
   background-color: white;
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 0.525rem;
+  padding-bottom: 0.525rem;
   padding-left: 1.25rem;
   padding-right: 3.125rem;
   border: 1px solid #eee;
@@ -26,7 +26,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .Search-text {
@@ -35,8 +35,9 @@
   padding-bottom: 0.625rem;
   padding-left: 0.5rem;
   padding-right: 0.32rem;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   width: calc(100% - 0.88rem);
+  border: 1px solid #d2cccc;
 }
 
 .Main-container {
