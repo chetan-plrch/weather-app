@@ -17,15 +17,11 @@ const List = ({ items, showList, onClick }) => {
         id={item?.id}
         name={item?.name}
       />
-    ))
-  }
+    ));
+  };
 
   if (showList && items?.length > 0) {
-    return (
-      <ListContainer>
-        {getListItems()}
-      </ListContainer>
-    );
+    return <ListContainer>{getListItems()}</ListContainer>;
   } else if (showList) {
     return (
       <ListContainer>
@@ -42,18 +38,18 @@ function App() {
   const [selectedCity, setSelectedCity] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false)
-  const selectedCityId = selectedCity?.id
+  const [error, setError] = useState(false);
+  const selectedCityId = selectedCity?.id;
 
   useEffect(() => {
     const setData = async () => {
       setLoading(true);
       setError(false);
       const cityData = await getDataForCity(selectedCityId);
-      if(cityData) {
+      if (cityData) {
         setWeatherData(cityData);
       } else {
-        setError(true)
+        setError(true);
       }
       setLoading(false);
     };
@@ -106,9 +102,9 @@ function App() {
           tempType={period?.weather[0]?.main}
           description={period?.weather[0]?.description}
         />
-      )
-    })
-  }
+      );
+    });
+  };
 
   return (
     <div className="Main-container">
@@ -126,9 +122,7 @@ function App() {
           showList={showList}
         />
       </div>
-      <div className="Cards-list-responsive">
-        {getWeatherList()}
-      </div>
+      <div className="Cards-list-responsive">{getWeatherList()}</div>
     </div>
   );
 }
