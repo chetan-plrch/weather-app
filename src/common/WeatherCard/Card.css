@@ -1,0 +1,104 @@
+.Weather-card {
+  background-color: #861657;
+  background-image: linear-gradient(326deg, #ffa69e 0%, #861657 68%);
+  border-radius: 8%;
+  max-height: 320px;
+  min-height: 230px;
+  width: 160px;
+  color: white;
+  position: relative;
+  margin: 20px;
+  box-shadow: 2px 10px 6px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 2px 10px 6px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 2px 10px 6px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Weather-content {
+  padding: 10px;
+  text-align: center;
+  margin-top: "2rem";
+}
+
+.Weather-card-loader {
+  background-color: #eee;
+  background-image: linear-gradient(326deg, #eae7e7 0%, #928a8f 68%);
+  border-radius: 8%;
+  max-height: 320px;
+  min-height: 230px;
+  width: 160px;
+  color: white;
+  position: relative;
+  margin: 20px;
+}
+
+.Weather-card-loader-text {
+  text-align: center;
+}
+
+.Card-name {
+  font-size: 1rem;
+}
+
+.Card-country {
+  font-size: 0.6rem;
+}
+
+.Card-lat-long {
+  font-size: 0.4rem;
+}
+
+.Card-date {
+  margin-top: 0.5rem;
+  font-size: 0.5rem;
+}
+
+.Card-flow {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.Card-humidity-image {
+  height: 2rem;
+  width: 2rem;
+}
+
+.Card-humidity {
+  font-size: 0.6rem;
+}
+
+.Card-temperature-block {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.Card-temp {
+  font-size: 0.8rem;
+}
+
+.Card-description {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.Card-top-image {
+  top: -1.2rem;
+  right: -1.2rem;
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+}
+
+.Margin-right {
+    margin-right: 0.8rem
+}
+
+.Margin-left {
+    margin-left: 0.8rem
+}
