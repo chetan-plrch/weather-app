@@ -1,6 +1,6 @@
 const defaultCityId = 1283240;
 const kelvinBase = 273.15;
-const appId = 'ff5d084541aac5b27ef0f46c449da8ca'
+const appId = "ff5d084541aac5b27ef0f46c449da8ca";
 
 const getDataForCity = async (cityId = defaultCityId) => {
   const url = `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${appId}`;
@@ -9,7 +9,6 @@ const getDataForCity = async (cityId = defaultCityId) => {
     const responseJson = await response.json();
     return responseJson;
   }
-//   return null;
 };
 
 function toDegreesMinutesAndSeconds(coordinate) {

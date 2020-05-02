@@ -6,7 +6,7 @@ import sunnyImage from "../../images/sunny.png";
 import cloudyImage from "../../images/cloudy.png";
 import rainImage from "../../images/rain.png";
 import snowImage from "../../images/snow.png";
-import "./Card.css";
+import "../../css/Card.css";
 
 const imageSet = {
   rain: rainImage,
