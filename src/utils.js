@@ -1,6 +1,7 @@
 const defaultCityId = 1283240;
 const kelvinBase = 273.15;
 const appId = "ff5d084541aac5b27ef0f46c449da8ca";
+const maxRelevantResults = 25
 
 const getDataForCity = async (cityId = defaultCityId) => {
   const url = `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${appId}`;
@@ -60,7 +61,7 @@ const getMatches = (cities, searchText) => {
       return [...acc, ...cur];
     }
     return acc;
-  }, []);
+  }, []).slice(0, maxRelevantResults);
 };
 
 export { kelvinBase, getDataForCity, convertDMS, getMatches };
