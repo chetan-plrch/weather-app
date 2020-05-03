@@ -28,7 +28,7 @@ const WeatherCard = ({
   description,
   loading,
 }) => {
-  const today = new Date(date).toString();
+  const day = new Date(date).toString();
 
   if (loading) {
     return (
@@ -38,46 +38,67 @@ const WeatherCard = ({
     );
   }
 
+  const getWindElement = () => {
+    if (windSpeed) {
+      return (
+        <div className="Margin-right">
+          <img
+            src={windImage}
+            className="Card-humidity-image"
+            alt="windSpeed"
+          />
+          <div className="Card-humidity">{`${windSpeed} m/s`}</div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const getHumidityElement = () => {
+    if (humidity) {
+      return <div className="Margin-left">
+        <img
+          src={humidityImage}
+          className="Card-humidity-image"
+          alt="humidityLevel"
+        />
+        <div className="Card-humidity">{`${humidity}%`}</div>
+      </div>;
+    }
+    return null;
+  };
+
+  const getImageElement = () => {
+    if (imageSet[tempType?.toLowerCase()]) {
+      return <img
+        src={imageSet[tempType?.toLowerCase()]}
+        className="Card-top-image"
+        alt="weather"
+      />;
+    }
+    return null;
+  };
+
   return (
     <div className="Weather-card">
       <div className="Weather-content">
         <div className="Card-name">{name}</div>
         <div className="Card-country">{country}</div>
         <div className="Card-lat-long">{convertDMS(lat, long)}</div>
-        <div className="Card-date">{today}</div>
+        <div className="Card-date">{day}</div>
         <div className="Card-flow">
-          <div className="Margin-right">
-            <img
-              src={windImage}
-              className="Card-humidity-image"
-              alt="windSpeed"
-            />
-            <div className="Card-humidity">{`${windSpeed} m/s`}</div>
-          </div>
-          <div className="Margin-left">
-            <img
-              src={humidityImage}
-              className="Card-humidity-image"
-              alt="humidityLevel"
-            />
-            <div className="Card-humidity">{`${humidity}%`}</div>
-          </div>
+          {getWindElement()}
+          {getHumidityElement()}
         </div>
         <div className="Card-flow">
           <div className="Card-temperature-block">
-            <div>{`${Math.round(temp - kelvinBase)}°C`}</div>
-            <div className="Card-temp">{tempType}</div>
+            {temp && <div>{`${Math.round(temp - kelvinBase)}°C`}</div>}
+            {tempType && <div className="Card-temp">{tempType}</div>}
           </div>
         </div>
-        <div className="Card-description">{description}</div>
+        {description && <div className="Card-description">{description}</div>}
       </div>
-      {imageSet[tempType?.toLowerCase()] ? (
-        <img
-          src={imageSet[tempType?.toLowerCase()]}
-          className="Card-top-image"
-          alt="weather"
-        />
-      ) : null}
+      {getImageElement()}
     </div>
   );
 };
