@@ -9,6 +9,7 @@ const getDataForCity = async (cityId = defaultCityId) => {
     const responseJson = await response.json();
     return responseJson;
   }
+  return null;
 };
 
 function toDegreesMinutesAndSeconds(coordinate) {
