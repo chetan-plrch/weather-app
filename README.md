@@ -1,3 +1,7 @@
+## Title
+
+    Weather Web App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Description
@@ -8,7 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run
+To run the project, you can run
 
     $ yarn
     $ yarn start
