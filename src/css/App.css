@@ -68,3 +68,11 @@
   flex-direction: column;
   display: flex;
 }
+
+li { 
+  cursor: pointer; 
+}
+
+.Highlight {
+  color: #00c5f7;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDataForCity } from "./utils";
+import { getDataForCity, getMatches } from "./utils";
 import ListContainer from "./common/ListContainer";
 import ListItem from "./common/ListItem";
 import SearchBox from "./common/SearchBox";
@@ -7,7 +7,7 @@ import WeatherCard from "./common/WeatherCard";
 import cities from "./data/daily.json";
 import "./css/App.css";
 
-const List = ({ items, showList, onClick }) => {
+const List = ({ items, showList, onClick, searchText }) => {
   const getListItems = () => {
     return items.map((item) => (
       <ListItem
@@ -16,6 +16,8 @@ const List = ({ items, showList, onClick }) => {
         }}
         id={item?.id}
         name={item?.name}
+        searchText={searchText}
+        placeholder={searchText?.length < 1}
       />
     ));
   };
@@ -25,7 +27,11 @@ const List = ({ items, showList, onClick }) => {
   } else if (showList) {
     return (
       <ListContainer>
-        <ListItem id={"search-no-results"} name={"No search results"} />
+        <ListItem
+          id={"search-no-results"}
+          name={"No search results"}
+          placeholder={true}
+        />
       </ListContainer>
     );
   }
@@ -58,9 +64,7 @@ function App() {
     setData();
   }, [selectedCityId]);
 
-  const items = cities.filter((item) => {
-    return item?.name?.toLowerCase()?.startsWith(searchText?.toLowerCase());
-  });
+  const items = getMatches(cities, searchText);
 
   const handleInputEvent = (evt) => {
     if (evt.target.value) {
@@ -84,7 +88,7 @@ function App() {
 
   const onClick = (cityObj) => {
     setSelectedCity(cityObj || null);
-    setSearchText(cityObj.name);
+    setSearchText(cityObj?.name || "");
   };
 
   const getLoadingState = () => {
@@ -119,15 +123,15 @@ function App() {
   };
 
   const getElements = () => {
-    if(error) {
-      return <div className="Cards-load-error">
-        Oops! Some Error occurred, Please try again after sometime
-      </div>
+    if (error) {
+      return (
+        <div className="Cards-load-error">
+          Oops! Could not load the data, Please try again after sometime
+        </div>
+      );
     }
-    return <div className="Cards-list-responsive">
-      {getWeatherList()}
-    </div>
-  }
+    return <div className="Cards-list-responsive">{getWeatherList()}</div>;
+  };
 
   return (
     <div className="Main-container">

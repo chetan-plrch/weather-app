@@ -40,4 +40,27 @@ function convertDMS(lat, lng) {
   );
 }
 
-export { kelvinBase, getDataForCity, convertDMS };
+const getMatches = (cities, searchText) => {
+  const filtered = []
+
+  cities.forEach((city) => {
+    const index = city?.name?.toLowerCase()?.indexOf(searchText?.toLowerCase());
+    if (index !== -1) {
+      if (filtered[index]) {
+        filtered[index].push(city);
+      } else {
+        filtered[index] = [];
+        filtered[index].push(city);
+      }
+    }
+  });
+
+  return filtered.reduce((acc, cur) => {
+    if (cur) {
+      return [...acc, ...cur];
+    }
+    return acc;
+  }, []);
+};
+
+export { kelvinBase, getDataForCity, convertDMS, getMatches };

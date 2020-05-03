@@ -9,6 +9,7 @@ const SearchBox = ({ searchText, onChange, onFocus, onBlur }) => {
       className="Search-text"
       onChange={onChange}
       value={searchText}
+      spellCheck="false"
     />
   );
 };
