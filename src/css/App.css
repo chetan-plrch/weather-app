@@ -44,6 +44,7 @@
   margin-left: 15%;
   margin-right: 15%;
   margin-top: 1.25rem;
+  margin-bottom: 5rem;
 }
 
 .Cards-list-responsive {
@@ -56,5 +57,14 @@
 }
 
 .List-relative {
-  position: relative
+  position: relative;
+}
+
+.Cards-load-error {
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  height: 50vh;
+  flex-direction: column;
+  display: flex;
 }

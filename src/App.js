@@ -12,7 +12,7 @@ const List = ({ items, showList, onClick }) => {
     return items.map((item) => (
       <ListItem
         onClick={() => {
-          onClick({ name: item.name, id: item.id });
+          onClick({ name: item?.name, id: item?.id });
         }}
         id={item?.id}
         name={item?.name}
@@ -39,6 +39,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
   const selectedCityId = selectedCity?.id;
 
   useEffect(() => {
@@ -117,6 +118,17 @@ function App() {
     return getLoadingState();
   };
 
+  const getElements = () => {
+    if(error) {
+      return <div className="Cards-load-error">
+        Oops! Some Error occurred, Please try again after sometime
+      </div>
+    }
+    return <div className="Cards-list-responsive">
+      {getWeatherList()}
+    </div>
+  }
+
   return (
     <div className="Main-container">
       <SearchBox
@@ -133,7 +145,7 @@ function App() {
           showList={showList}
         />
       </div>
-      <div className="Cards-list-responsive">{getWeatherList()}</div>
+      {getElements()}
     </div>
   );
 }
