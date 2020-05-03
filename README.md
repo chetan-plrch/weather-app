@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
     This project shows the weather forecast for a city over a short period. It is a pure React.js and JavaScript implementation. Having said that there’s no jQuery being used in this project. A json loader had to be used to load the json file, which could have also been served from a API endpoint.
 
+    The search could have been implemented using better algorithms and data structures such as Searching and Sorting algorithms and HashMap etc., but due to the limited data set, the tweaks might not return significant performance benefit. A server for that matter is better to take the load and do search / sort optimization's
+
 ## Available Scripts
 
 In the project directory, you can run
