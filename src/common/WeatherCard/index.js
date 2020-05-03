@@ -28,6 +28,8 @@ const WeatherCard = ({
   description,
   loading,
 }) => {
+  const today = new Date(date).toString();
+
   if (loading) {
     return (
       <div className="Weather-card-loader">
@@ -42,7 +44,7 @@ const WeatherCard = ({
         <div className="Card-name">{name}</div>
         <div className="Card-country">{country}</div>
         <div className="Card-lat-long">{convertDMS(lat, long)}</div>
-        <div className="Card-date">{new Date(date).toString()}</div>
+        <div className="Card-date">{today}</div>
         <div className="Card-flow">
           <div className="Margin-right">
             <img

@@ -86,24 +86,35 @@ function App() {
     setSearchText(cityObj.name);
   };
 
-  const getWeatherList = () => {
-    return weatherData?.list.map((period) => {
-      return (
-        <WeatherCard
-          loading={loading}
-          name={weatherData?.city?.name}
-          country={weatherData?.city?.country}
-          lat={weatherData?.city?.coord?.lat}
-          long={weatherData?.city?.coord?.lon}
-          date={period?.dt}
-          windSpeed={period?.wind?.speed}
-          humidity={period?.main?.humidity}
-          temp={period?.main?.temp}
-          tempType={period?.weather[0]?.main}
-          description={period?.weather[0]?.description}
-        />
-      );
+  const getLoadingState = () => {
+    return new Array(6).fill(0).map(() => {
+      return <WeatherCard loading={true} />;
     });
+  };
+
+  const getWeatherList = () => {
+    const weatherLoaded = weatherData?.list?.length > 0;
+    if (weatherLoaded) {
+      return weatherData.list.map((period) => {
+        return (
+          <WeatherCard
+            loading={loading}
+            name={weatherData?.city?.name}
+            country={weatherData?.city?.country}
+            lat={weatherData?.city?.coord?.lat}
+            long={weatherData?.city?.coord?.lon}
+            date={period?.dt}
+            windSpeed={period?.wind?.speed}
+            humidity={period?.main?.humidity}
+            temp={period?.main?.temp}
+            tempType={period?.weather[0]?.main}
+            description={period?.weather[0]?.description}
+          />
+        );
+      });
+    }
+
+    return getLoadingState();
   };
 
   return (
