@@ -89,6 +89,7 @@ function App() {
   const onClick = (cityObj) => {
     setSelectedCity(cityObj || null);
     setSearchText(cityObj?.name || "");
+    setShowList(false)
   };
 
   const getLoadingState = () => {
