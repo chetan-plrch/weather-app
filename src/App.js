@@ -83,7 +83,7 @@ function App() {
   };
 
   const onSearchBlur = () => {
-    setTimeout(() => setShowList(false), 50);
+    setTimeout(() => setShowList(false), 200);
   };
 
   const onClick = (cityObj) => {
