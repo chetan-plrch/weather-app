@@ -1,6 +1,6 @@
 const defaultCityId = 1283240;
 const kelvinBase = 273.15;
-const appId = "ff5d084541aac5b27ef0f46c449da8ca";
+const appId = "d80352b92df55588f82aeb1c904351dc";
 const maxRelevantResults = 25
 
 const getDataForCity = async (cityId = defaultCityId) => {
